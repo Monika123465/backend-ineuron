@@ -1,7 +1,7 @@
-const authRoutes={
+const authRoles={
     ADMIN:'ADMIN',
     MODERATOR:'MODERATOR',
     USER:'USER'
 }
 
-export default authRoutes
+export default authRoles

@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 import app from "./src/app.js"
 import config from "./src/index.js"
+
 (async()=>{
     try {
         await mongoose.connect(config.MONGODB_URL)
@@ -21,4 +22,6 @@ import config from "./src/index.js"
         throw err
         
     }
-})
+})();
+
+
