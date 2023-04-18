@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 import app from "./src/app.js"
-import config from "./src/index.js"
+import config from "./src/config/index.js"
 
 (async()=>{
     try {
