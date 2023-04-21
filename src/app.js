@@ -9,6 +9,20 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors())
 app.use(cookieParser())
 
+app.use("/api/v1/", routes)
+
+app.get("/", (_req, res) => {
+    res.send("Hello there hitesh - API")
+})
+
+
+app.all("*", (_req, res) => {
+    return res.status(404).json({
+        success: false,
+        message: "Route not found"
+    })
+}) 
+
 
 
 export default app
