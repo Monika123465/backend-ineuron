@@ -18,8 +18,8 @@ import config from "./src/config/index.js"
         app.listen(config.PORT,onListening)
         
     } catch (error) {
-        console.error('ERROR:',err)
-        throw err
+        console.error('ERROR:',error)
+        throw error
         
     }
 })();
