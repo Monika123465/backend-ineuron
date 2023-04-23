@@ -17,7 +17,7 @@ export const createCollection = asyncHandler(async (req, res) => {
     })
 })
 
-const updateCollection = asyncHandler(async (req, res) => {
+export const updateCollection = asyncHandler(async (req, res) => {
     const { name } = req.body
     const { id: collectionId } = req.params
     if (!name) {
@@ -39,28 +39,28 @@ const updateCollection = asyncHandler(async (req, res) => {
     })
 })
 
-export const deleteColection=asyncHandler(async(req,res)=>{
-    const {id:collectionId}=req.params
-    const collectionDelete=await Collection.findById(collectionId)
-    if(!collectionDelete){
+export const deleteColection = asyncHandler(async (req, res) => {
+    const { id: collectionId } = req.params
+    const collectionDelete = await Collection.findById(collectionId)
+    if (!collectionDelete) {
         throw new CustomError("collection to be deleted,400")
     }
     await collectionDelete.remove()
 
     res.status(200).json({
-        success:true,
-        message:"collection deleted successfully"
+        success: true,
+        message: "collection deleted successfully"
     })
 
 })
 
-export const getAllCollection=asyncHandler(async(req,res)=>{
-    const collection=await Collection.find()
-    if(!collection){
-        throw new CustomError("No collection found",400)
+export const getAllCollection = asyncHandler(async (req, res) => {
+    const collection = await Collection.find()
+    if (!collection) {
+        throw new CustomError("No collection found", 400)
     }
     res.status(200).json({
-        success:true,
+        success: true,
         collection
     })
 })
