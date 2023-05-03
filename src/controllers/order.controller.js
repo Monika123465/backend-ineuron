@@ -50,3 +50,42 @@ export const generateRazorpayOrderId=asyncHandler(async(req,res)=>{
         
     })
 })
+
+export const generateOrder = asyncHandler(async(req, res) => {
+    //add more fields below
+    const {transactionId, products, coupon } = req.body
+})
+
+//Todo: get only my orders
+export const getMyOrders = asyncHandler(async(req, res) => {
+    const {id:orderId}=req.params
+    const orders=await Order.findById(orderId)
+
+    if(!orders){
+       throw new CustomError('orders are not found',400)
+    }
+    return res.status(200).json({
+        success:true,
+        orders
+    })
+    
+})
+
+//Todo: get all my orders: Admin
+export const getAllOrders = asyncHandler(async(req, res) => {
+    
+    const allOrder=await Order.find({})
+    if(!allOrder){
+        throw new CustomError("orders not found",400)
+    }
+    return res.status(200).json({
+        success:true,
+        allOrder
+    })
+
+})
+
+//Todo: update order Status: Admin
+export const updateOrderStatus = asyncHandler(async(req, res) => {
+    //
+})
