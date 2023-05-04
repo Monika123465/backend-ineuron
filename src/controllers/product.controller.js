@@ -101,7 +101,7 @@ export const getProductByCollectionId = asyncHandler(async (req, res) => {
     })
 })
 
-export const deleteProdct = asyncHandler(async (req, res) => {
+export const deleteProduct = asyncHandler(async (req, res) => {
     const { id: productId } = req.params
 
     const product = await Product.findById(productId)
