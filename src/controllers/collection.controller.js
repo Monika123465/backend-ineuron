@@ -1,6 +1,6 @@
-import { Collection } from "../models/collection.model";
-import asyncHandler from "../service/asyncHandler";
-import CustomError from "../utils/customError";
+import  Collection from "../models/collection.model.js";
+import asyncHandler from "../service/asyncHandler.js";
+import CustomError from "../utils/customError.js";
 
 export const createCollection = asyncHandler(async (req, res) => {
     const { name } = req.body
@@ -39,7 +39,7 @@ export const updateCollection = asyncHandler(async (req, res) => {
     })
 })
 
-export const deleteColection = asyncHandler(async (req, res) => {
+export const deleteCollection = asyncHandler(async (req, res) => {
     const { id: collectionId } = req.params
     const collectionDelete = await Collection.findById(collectionId)
     if (!collectionDelete) {

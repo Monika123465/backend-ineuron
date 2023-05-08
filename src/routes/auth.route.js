@@ -3,12 +3,12 @@ import {getProfile,login,logout,signUp} from "../controllers/auth.controller.js"
 import {isLoggedIn} from "../middlewares/auth.middleware.js"
 
 
-const router=Router()
+const authRoutes =Router()
 
-router.post("/signup", signUp)
-router.post("/login", login)
-router.get("/logout", logout)
+authRoutes.post("/signup", signUp)
+authRoutes.post("/login", login)
+authRoutes.get("/logout", logout)
 
-router.get("/profile", isLoggedIn, getProfile)
+authRoutes.get("/profile", isLoggedIn, getProfile)
 
-export default router
+export default authRoutes
